@@ -1,0 +1,23 @@
+{
+  "name": "frontend-nanodegree-arcade-game",
+  "version": "1.0.0",
+  "description": "frontend-nanodegree-arcade-game",
+  "main": "js",
+  "scripts": {
+    "build": "babel --presets env js -d jsConv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nboober/frontend-nanodegree-arcade-game.git"
+  },
+  "author": "Nick Boober",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nboober/frontend-nanodegree-arcade-game/issues"
+  },
+  "homepage": "https://github.com/nboober/frontend-nanodegree-arcade-game#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
