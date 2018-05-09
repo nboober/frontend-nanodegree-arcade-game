@@ -11,10 +11,10 @@
 - [] Spawn Gems, hearts, rocks, and other things in random areas of the game map.
 - [] Implement Enemy movement.
 - [] Implement Player collision functionality.
-      - [] Colliding with Water increases the score, resets the player, and resets the gem/ rock positioning
-      - [] Colliding with Enemy reduces score and ends the game
-      - [] Colliding with Gems increase the score. Possibly creating other perks? (invincibility, slow time, super speed?)
-      - [] Colliding with rock stops player
+    - [] Colliding with Water increases the score, resets the player, and resets the gem/ rock positioning
+    - [] Colliding with Enemy reduces score and ends the game
+    - [] Colliding with Gems increase the score. Possibly creating other perks? (invincibility, slow time, super speed?)
+    - [] Colliding with rock stops player
 - [] The game continues forever until the player hits an enemy.
 
 ## Instructions
