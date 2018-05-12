@@ -4,7 +4,7 @@
 ## Tasks
 
 - [x] Put background images in the game.
-- [] Put character image in the game.
+- [x] Put character image in the game.
 - [] Implement a character selection option when the game begins.
 - [] Implement Character Movement in the game.
 - [] Spawn enemies in random locations on the left side of the game map.
