@@ -7,7 +7,7 @@
 - [x] Put character image in the game.
 - [] Implement a character selection option when the game begins.
 - [] Implement Character Movement in the game.
-- [] Spawn enemies in random locations on the left side of the game map.
+- [x] Spawn enemies in random locations on the left side of the game map.
 - [] Spawn Gems, hearts, rocks, and other things in random areas of the game map.
 - [] Implement Enemy movement.
 - [] Implement Player collision functionality.

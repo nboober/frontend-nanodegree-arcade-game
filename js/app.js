@@ -1,10 +1,11 @@
 // Enemies our player must avoid
 class Enemy{
-  constructor(y){
+  constructor(y = [60, 145, 225]){
     this.sprite = 'images/enemy-bug.png';
-    this.x = -101;
-    this.y = y;
+    this.x = 0;
+    this.y = y[Math.floor(Math.random()*3)];
   }
+
   update(dt){
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -22,7 +23,7 @@ class Player {
   constructor(sprite, x, y){
     this.sprite = sprite;
     this.x = 200;
-    this.y = 380;
+    this.y = 390;
   }
     update(dt){
 
@@ -43,7 +44,7 @@ const player2 = new Player('images/char-horn-girl.png');
 const player3 = new Player('images/char-pink-girl.png');
 const player4 = new Player('images/char-princess-girl.png');
 
-const roach1 = new Enemy(300);
+const roach1 = new Enemy();
 const roach2 = new Enemy();
 const roach3 = new Enemy();
 const roach4 = new Enemy();
