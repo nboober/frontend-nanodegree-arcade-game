@@ -3,7 +3,7 @@
 
 ## Tasks
 
-- [] Put background images in the game.
+- [x] Put background images in the game.
 - [] Put character image in the game.
 - [] Implement a character selection option when the game begins.
 - [] Implement Character Movement in the game.
