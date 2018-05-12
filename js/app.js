@@ -1,25 +1,19 @@
 // Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+class Enemy{
+  constructor(y){
     this.sprite = 'images/enemy-bug.png';
-};
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+    this.x = -101;
+    this.y = y;
+  }
+  update(dt){
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-};
-
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+  }
+  render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+  }
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -27,8 +21,8 @@ Enemy.prototype.render = function() {
 class Player {
   constructor(sprite, x, y){
     this.sprite = sprite;
-    this.x = x;
-    this.y = y;
+    this.x = 200;
+    this.y = 380;
   }
     update(dt){
 
@@ -43,13 +37,13 @@ class Player {
 
 // Now instantiate your objects.
 // Place the player object in a variable called player
-const player = new Player('images/char-boy.png', 200, 400);
+const player = new Player('images/char-boy.png');
 const player1 = new Player('images/char-cat-girl.png');
 const player2 = new Player('images/char-horn-girl.png');
 const player3 = new Player('images/char-pink-girl.png');
 const player4 = new Player('images/char-princess-girl.png');
 
-const roach1 = new Enemy(30, 500);
+const roach1 = new Enemy(300);
 const roach2 = new Enemy();
 const roach3 = new Enemy();
 const roach4 = new Enemy();
