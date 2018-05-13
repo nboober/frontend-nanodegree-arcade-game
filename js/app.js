@@ -1,3 +1,41 @@
+//Function for player selection at start of game
+function* characterSelection(){
+  console.log("Select which character you want to be...");
+let playerSelection = ["images/char-boy.png",  "images/char-cat-girl.png",  "images/char-horn-girl.png", "images/char-pink-girl.png", "images/char-princess-girl.png"];
+let selected = [];
+
+for (const selection of playerSelection){
+  console.log(selected);
+  selected.splice(0, 1, yield selection);
+  }
+  return selected;
+}
+
+const selectedPlayer = characterSelection();
+console.log(selectedPlayer);
+let selectedChar = selectedPlayer.next().value;
+console.log(selectedChar);
+selectedChar = selectedPlayer.next().value;
+console.log(selectedChar);
+selectedChar = selectedPlayer.next().value;
+console.log(selectedChar);
+selectedChar = selectedPlayer.next().value;
+console.log(selectedChar);
+selectedChar = selectedPlayer.next().value;
+console.log(selectedChar);
+
+
+//
+// document.addEventListener('keyup', function(e) {
+//     var switchChar = e.kecode;
+//     switch(switchChar)
+//     {
+//         case 33:
+//         return selectedChar;
+//         console.log(selectedChar);
+//     }
+// });
+
 // Enemies our player must avoid
 class Enemy{
   constructor(y = [60, 145, 225]){
@@ -38,11 +76,7 @@ class Player {
 
 // Now instantiate your objects.
 // Place the player object in a variable called player
-const player = new Player('images/char-boy.png');
-const player1 = new Player('images/char-cat-girl.png');
-const player2 = new Player('images/char-horn-girl.png');
-const player3 = new Player('images/char-pink-girl.png');
-const player4 = new Player('images/char-princess-girl.png');
+const player = new Player(selectedChar);
 
 const roach1 = new Enemy();
 const roach2 = new Enemy();
