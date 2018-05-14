@@ -4,9 +4,9 @@ function* characterSelection(){
 let playerSelection = ["images/char-boy.png",  "images/char-cat-girl.png",  "images/char-horn-girl.png", "images/char-pink-girl.png", "images/char-princess-girl.png"];
 let selected = [];
 
-for (const selection of playerSelection){
+for (let selection = 0; selection < playerSelection.length; selection++){
   console.log(selected);
-  selected.splice(0, 1, yield selection);
+  selected.splice(0, 1, yield playerSelection[selection]);
   }
   return selected;
 }
@@ -15,26 +15,14 @@ const selectedPlayer = characterSelection();
 console.log(selectedPlayer);
 let selectedChar = selectedPlayer.next().value;
 console.log(selectedChar);
-selectedChar = selectedPlayer.next().value;
-console.log(selectedChar);
-selectedChar = selectedPlayer.next().value;
-console.log(selectedChar);
-selectedChar = selectedPlayer.next().value;
-console.log(selectedChar);
-selectedChar = selectedPlayer.next().value;
-console.log(selectedChar);
 
 
-//
-// document.addEventListener('keyup', function(e) {
-//     var switchChar = e.kecode;
-//     switch(switchChar)
-//     {
-//         case 33:
-//         return selectedChar;
-//         console.log(selectedChar);
-//     }
-// });
+document.addEventListener('keyup', function(e) {
+    if(e.keyCode === 33) {
+        selectedChar = selectedPlayer.next().value;
+        console.log(selectedChar);
+    }
+});
 
 // Enemies our player must avoid
 class Enemy{
@@ -53,7 +41,6 @@ class Enemy{
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
-
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -61,7 +48,7 @@ class Player {
   constructor(sprite, x, y){
     this.sprite = sprite;
     this.x = 200;
-    this.y = 390;
+    this.y = 400;
   }
     update(dt){
 
@@ -69,8 +56,23 @@ class Player {
     render(){
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    handleInput(){
-
+    handleInput(key){
+        if(key === 'left' && this.x > 0){
+          this.x-=100;
+          console.log(this.x);
+        }
+        if(key === 'right' && this.x < 400){
+          this.x+=100
+          console.log(this.x);
+        }
+        if(key === 'up' && this.y > 60){
+          this.y-=85;
+          console.log(this.y);
+        }
+        if(key === 'down' && this.y < 400){
+          this.y+=85;
+          console.log(this.y);
+        }
     }
 }
 
@@ -89,7 +91,7 @@ let allEnemies = [roach1, roach2, roach3, roach4, roach5];
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    let allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
@@ -97,4 +99,5 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
+    console.log(allowedKeys[e.keyCode]);
 });
