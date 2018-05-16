@@ -1,12 +1,15 @@
 //Global Valriables
-  //Score Variable
+  //Score
 let score = 0;
+let displayScore;
 console.log(score);
-  //High Score Variable
+  //High Score
 let highScore = 0;
+let displayHighScore;
 console.log(highScore);
-  //Lives Variable
+  //Lives
 let lives = 3;
+let displayLives;
 console.log(lives);
 
 //Function for player selection at start of game
@@ -62,8 +65,16 @@ class Enemy{
       player.x = 200;
       player.y = 400;
       lives -= 1;
-      let displayLives = document.getElementById('lives').innerHTML = lives;
+      displayLives = document.getElementById('lives').innerHTML = lives;
 
+      //Game Over
+      if(lives === 0){
+        alert("Game Over!");
+        lives = 3;
+        displayLives = document.getElementById('lives').innerHTML = lives;
+        score = 0;
+        displayScore = document.getElementById('score').innerHTML = score;
+      }
     }
   }
   render(){
@@ -86,13 +97,13 @@ class Player {
         this.x = 200;
         this.y = 400;
         score += 100;
-        let displayScore = document.getElementById('score').innerHTML = score;
+        displayScore = document.getElementById('score').innerHTML = score;
         console.log("Score: " + score);
 
         //High Score updates with score if score becomes greater then the high score.
         if(score > highScore){
           highScore = score;
-          let displayHighScore = document.getElementById('highScore').innerHTML = highScore;
+          displayHighScore = document.getElementById('highScore').innerHTML = highScore;
           console.log("High Score: " + highScore);
         }
 
