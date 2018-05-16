@@ -28,7 +28,7 @@ document.addEventListener('keyup', function(e) {
 class Enemy{
   constructor(y = [60, 145, 225]){
     this.sprite = 'images/enemy-bug.png';
-    this.x = Math.random()*-200;
+    this.x = Math.random()*-300;
     this.y = y[Math.floor(Math.random()*3)];
   }
 
@@ -39,7 +39,8 @@ class Enemy{
     this.x = this.x + (dt * 400 * Math.random());
 
     if(this.x > 500){
-      this.x = -100;
+      this.x = Math.random()*-300;
+      this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
   }
   render(){
@@ -89,11 +90,9 @@ const player = new Player(selectedChar);
 const roach1 = new Enemy();
 const roach2 = new Enemy();
 const roach3 = new Enemy();
-const roach4 = new Enemy();
-const roach5 = new Enemy();
 
 // Place all enemy objects in an array called allEnemies
-let allEnemies = [roach1, roach2, roach3, roach4, roach5];
+let allEnemies = [roach1, roach2, roach3];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
