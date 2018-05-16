@@ -28,7 +28,7 @@ document.addEventListener('keyup', function(e) {
 class Enemy{
   constructor(y = [60, 145, 225]){
     this.sprite = 'images/enemy-bug.png';
-    this.x = Math.random()*-300;
+    this.x = Math.random()*500;
     this.y = y[Math.floor(Math.random()*3)];
   }
 
@@ -36,10 +36,10 @@ class Enemy{
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + (dt * 400 * Math.random());
+    this.x = this.x + (dt * 300 * Math.random()*2);
 
     if(this.x > 500){
-      this.x = Math.random()*-300;
+      this.x = Math.random()*-101;
       this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
   }
