@@ -46,14 +46,18 @@ class Enemy{
     // all computers.
 
     //Enemy Movement
-    this.x = this.x + (dt * 300 * Math.random()*2);
-
+    this.x = Math.ceil(this.x + (dt * 300 * Math.random()*2));
+    console.log(this.x);
     //Enemy Resets position when reaching end of canvas
     if(this.x > 500){
       this.x = Math.random()*-101;
       this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
 
+    if (this.x === player.x){
+      player.x = 200;
+      player.y = 400;
+    }
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -78,6 +82,7 @@ class Player {
         let displayScore = document.getElementById('score').innerHTML = score;
         console.log("Score: " + score);
 
+        //High Score updates with score if score becomes greater then the high score.
         if(score > highScore){
           highScore = score;
           let displayHighScore = document.getElementById('highScore').innerHTML = highScore;
