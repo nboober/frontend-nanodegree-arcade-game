@@ -9,6 +9,9 @@ body {
 #scoreContainer, #highScoreContainer{
   display: inline-block;
 }
+#scoreContainer{
+  margin-right: 40px;
+}
 
 #name, #score, #highScore, #lives{
   display: inline;
