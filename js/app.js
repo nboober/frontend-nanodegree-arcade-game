@@ -28,7 +28,7 @@ document.addEventListener('keyup', function(e) {
 class Enemy{
   constructor(y = [60, 145, 225]){
     this.sprite = 'images/enemy-bug.png';
-    this.x = Math.random()*500;
+    this.x = Math.random()*350;
     this.y = y[Math.floor(Math.random()*3)];
   }
 
