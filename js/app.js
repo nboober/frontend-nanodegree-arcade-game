@@ -2,9 +2,12 @@
   //Score Variable
 let score = 0;
 console.log(score);
-
+  //High Score Variable
 let highScore = 0;
 console.log(highScore);
+  //Lives Variable
+let lives = 3;
+console.log(lives);
 
 //Function for player selection at start of game
 function* characterSelection(){
@@ -47,16 +50,20 @@ class Enemy{
 
     //Enemy Movement
     this.x = Math.ceil(this.x + (dt * 300 * Math.random()*2));
-    console.log(this.x);
+    // console.log(this.x);
+
     //Enemy Resets position when reaching end of canvas
     if(this.x > 500){
       this.x = Math.random()*-101;
       this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
-
-    if (this.x === player.x){
+    //Collision functionality
+    if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
       player.x = 200;
       player.y = 400;
+      lives -= 1;
+      let displayLives = document.getElementById('lives').innerHTML = lives;
+
     }
   }
   render(){
