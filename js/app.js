@@ -90,9 +90,11 @@ const player = new Player(selectedChar);
 const roach1 = new Enemy();
 const roach2 = new Enemy();
 const roach3 = new Enemy();
+const roach4 = new Enemy();
+const roach5 = new Enemy();
 
 // Place all enemy objects in an array called allEnemies
-let allEnemies = [roach1, roach2, roach3];
+let allEnemies = [roach1, roach2, roach3, roach4, roach5];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
