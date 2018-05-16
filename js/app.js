@@ -1,3 +1,8 @@
+//Global Valriables
+  //Score Variable
+let score = 0;
+console.log(score);
+
 //Function for player selection at start of game
 function* characterSelection(){
   console.log("Select which character you want to be...");
@@ -36,16 +41,16 @@ class Enemy{
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    
+    //Enemy Movement
     this.x = this.x + (dt * 300 * Math.random()*2);
 
+    //Enemy Resets position when reaching end of canvas
     if(this.x > 500){
       this.x = Math.random()*-101;
       this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
 
-    if(this.x === player.x){
-    this.x = 200;
-    }
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -62,9 +67,13 @@ class Player {
     this.y = 400;
   }
     update(){
+      //If the player reaches the water the player is reset to original posotion and score is increased by 100
       if (this.y < 60){
         this.x = 200;
         this.y = 400;
+        score += 100;
+        let displayScore = document.getElementById('score').innerHTML = score;
+        console.log("Score: " + score);
       }
     }
     render(){
@@ -90,10 +99,10 @@ class Player {
     }
 }
 
-// Now instantiate your objects.
-// Place the player object in a variable called player
+//Player instance
 const player = new Player(selectedChar);
 
+//Enemy Instances
 const roach1 = new Enemy();
 const roach2 = new Enemy();
 const roach3 = new Enemy();
@@ -104,7 +113,7 @@ const roach5 = new Enemy();
 let allEnemies = [roach1, roach2, roach3, roach4, roach5];
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method
 document.addEventListener('keyup', function(e) {
     let allowedKeys = {
         37: 'left',
