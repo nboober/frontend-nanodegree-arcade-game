@@ -42,6 +42,10 @@ class Enemy{
       this.x = Math.random()*-101;
       this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
+
+    if(this.x === player.x){
+    this.x = 200;
+    }
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -58,7 +62,10 @@ class Player {
     this.y = 400;
   }
     update(){
-
+      if (this.y < 60){
+        this.x = 200;
+        this.y = 400;
+      }
     }
     render(){
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
