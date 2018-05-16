@@ -28,7 +28,7 @@ document.addEventListener('keyup', function(e) {
 class Enemy{
   constructor(y = [60, 145, 225]){
     this.sprite = 'images/enemy-bug.png';
-    this.x = 0;
+    this.x = Math.random()*-200;
     this.y = y[Math.floor(Math.random()*3)];
   }
 
@@ -36,11 +36,17 @@ class Enemy{
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x = this.x + (dt * 400 * Math.random());
+
+    if(this.x > 500){
+      this.x = -100;
+    }
   }
   render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -50,7 +56,7 @@ class Player {
     this.x = 200;
     this.y = 400;
   }
-    update(dt){
+    update(){
 
     }
     render(){
@@ -65,7 +71,7 @@ class Player {
           this.x+=100
           console.log(this.x);
         }
-        if(key === 'up' && this.y > 60){
+        if(key === 'up' && this.y > 59){
           this.y-=85;
           console.log(this.y);
         }
@@ -85,6 +91,7 @@ const roach2 = new Enemy();
 const roach3 = new Enemy();
 const roach4 = new Enemy();
 const roach5 = new Enemy();
+
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [roach1, roach2, roach3, roach4, roach5];
 

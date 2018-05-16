@@ -9,7 +9,7 @@
 - [x] Implement Character Movement in the game.
 - [x] Spawn enemies in random locations on the left side of the game map.
 - [] Spawn Gems, hearts, rocks, and other things in random areas of the game map.
-- [] Implement Enemy movement.
+- [x] Implement Enemy movement.
 - [] Implement Player collision functionality.
     - [] Colliding with Water increases the score, resets the player, and resets the gem/ rock positioning
     - [] Colliding with Enemy reduces score and ends the game
