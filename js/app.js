@@ -3,6 +3,9 @@
 let score = 0;
 console.log(score);
 
+let highScore = 0;
+console.log(highScore);
+
 //Function for player selection at start of game
 function* characterSelection(){
   console.log("Select which character you want to be...");
@@ -41,7 +44,7 @@ class Enemy{
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    
+
     //Enemy Movement
     this.x = this.x + (dt * 300 * Math.random()*2);
 
@@ -74,6 +77,13 @@ class Player {
         score += 100;
         let displayScore = document.getElementById('score').innerHTML = score;
         console.log("Score: " + score);
+
+        if(score > highScore){
+          highScore = score;
+          let displayHighScore = document.getElementById('highScore').innerHTML = highScore;
+          console.log("High Score: " + highScore);
+        }
+
       }
     }
     render(){

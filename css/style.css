@@ -2,10 +2,14 @@ body {
     text-align: center;
 }
 
-#scoreContainer{
+#scoreContainer, #highScoreContainer, #livesContainer{
   font-size: 24px;
 }
 
-#name, #score{
+#scoreContainer, #highScoreContainer{
+  display: inline-block;
+}
+
+#name, #score, #highScore, #lives{
   display: inline;
 }
