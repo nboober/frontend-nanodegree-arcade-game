@@ -154,6 +154,8 @@ var Engine = (function(global) {
         });
 
         player.render();
+        rock.render();
+        heart.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -178,8 +180,8 @@ var Engine = (function(global) {
         "images/char-horn-girl.png",
         "images/char-pink-girl.png",
         "images/char-princess-girl.png",
-        "images/Heart.png",
-        "images/Rock.png"
+        "images/heart.png",
+        "images/rock.png"
     ]);
     Resources.onReady(init);
 
