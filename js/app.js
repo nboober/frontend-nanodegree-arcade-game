@@ -67,13 +67,19 @@ class Enemy{
       lives -= 1;
       displayLives = document.getElementById('lives').innerHTML = lives;
 
-      //Game Over
+      //Game Over. Everything except the high score is reset
       if(lives === 0){
         alert("Game Over!");
         lives = 3;
         displayLives = document.getElementById('lives').innerHTML = lives;
         score = 0;
         displayScore = document.getElementById('score').innerHTML = score;
+        //heart Object Changes locations
+        heart.x = [0, 100, 200, 300, 400][Math.floor(Math.random()*5)];
+        heart.y = [60, 145, 225][Math.floor(Math.random()*3)];
+        //Rock Object Changes locations
+        rock.x = [0, 100, 200, 300, 400][Math.floor(Math.random()*5)];
+        rock.y = [60, 145, 225][Math.floor(Math.random()*3)];
       }
     }
   }
@@ -148,7 +154,7 @@ class Heart extends Extras{
     super(sprite, x, y);
   }
   update(){
-    if ((this.x <= player.x && this.x + 100 >= player.x) && (this.y <= player.y && this.y + 100 >= player.y)){
+    if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
       lives += 1;
       displayLives = document.getElementById('lives').innerHTML = lives;
       delete this.x;
