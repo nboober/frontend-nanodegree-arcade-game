@@ -40,7 +40,7 @@ document.addEventListener('keyup', function(e) {
 
 // Enemies our player must avoid
 class Enemy{
-  constructor(y = [60, 145, 225]){
+  constructor(y = [60, 145, 230]){
     this.sprite = 'images/enemy-bug.png';
     this.x = Math.random()*350;
     this.y = y[Math.floor(Math.random()*3)];
@@ -144,11 +144,11 @@ class Extras{
 }
 
 class Heart extends Extras{
-  constructor(sprite, x = [0, 100, 200, 300, 400] , y = [60, 145, 225]){
+  constructor(sprite, x = [0, 100, 200, 300, 400] , y = [60, 145, 230]){
     super(sprite, x, y);
   }
   update(){
-    if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
+    if ((this.x <= player.x && this.x + 100 >= player.x) && (this.y <= player.y && this.y + 100 >= player.y)){
       lives += 1;
       displayLives = document.getElementById('lives').innerHTML = lives;
       delete this.x;
@@ -158,7 +158,7 @@ class Heart extends Extras{
 }
 
 class Rock extends Extras{
-  constructor(sprite, x = [0, 100, 200, 300, 400] , y = [60, 145, 225]){
+  constructor(sprite, x = [0, 100, 200, 300, 400] , y = [60, 145, 230]){
     super(sprite, x, y);
   }
   update(){
@@ -168,14 +168,14 @@ class Rock extends Extras{
   }
 }
 
-const heart = new Heart("images/heart.png");
+let heart = new Heart("images/heart.png");
 console.log(heart);
 
-const rock = new Rock("images/rock.png");
+let rock = new Rock("images/rock.png");
 console.log(rock);
 
 //Player instance
-const player = new Player(selectedChar);
+let player = new Player(selectedChar);
 
 //Enemy Instances
 const roach1 = new Enemy();
