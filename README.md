@@ -8,13 +8,13 @@
 - [] Implement a character selection option when the game begins.
 - [x] Implement Character Movement in the game.
 - [x] Spawn enemies in random locations on the left side of the game map.
-- [] Spawn Gems, hearts, rocks, and other things in random areas of the game map.
+- [x] Spawn Gems, hearts, rocks, and other things in random areas of the game map.
 - [x] Implement Enemy movement.
-- [] Implement Player collision functionality.
+- [x] Implement Player collision functionality.
     - [x] Colliding with Water increases the score, resets the player, and resets the gem/ rock positioning
     - [x] Colliding with Enemy reduces score and ends the game
     - [] Colliding with Gems increase the score. Possibly creating other perks? (invincibility, slow time, super speed?)
-    - [] Colliding with rock stops player
+    - [x] Colliding with rock stops player
 - [x] The game continues forever until the player hits an enemy.
 
 ## Instructions

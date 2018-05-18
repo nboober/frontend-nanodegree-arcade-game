@@ -95,7 +95,6 @@ var Engine = (function(global) {
         });
         player.update();
         heart.update();
-        rock.update();
     }
 
     /* This function initially draws the "game level", it will then call

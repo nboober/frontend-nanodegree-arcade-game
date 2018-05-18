@@ -167,11 +167,6 @@ class Rock extends Extras{
   constructor(sprite, x = [0, 100, 200, 300, 400] , y = [60, 145, 230]){
     super(sprite, x, y);
   }
-  update(){
-    if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
-
-    }
-  }
 }
 
 let heart = new Heart("images/heart.png");
@@ -197,11 +192,38 @@ let allEnemies = [roach1, roach2, roach3, roach4, roach5];
 // Player.handleInput() method
 document.addEventListener('keyup', function(e) {
     let allowedKeys = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+    };
+    
+    //Rock collision
+    if((rock.y < player.y && rock.y + 100 > player.y)&&(rock.x === player.x)){
+      allowedKeys = {
+      37: 'left',
+      39: 'right',
+      40: 'down'
+      }
+    }else if((rock.y > player.y && rock.y - 100 < player.y)&&(rock.x === player.x)){
+      allowedKeys = {
         37: 'left',
+        38: 'up',
+        39: 'right'
+      }
+    }else if((rock.x < player.x && rock.x + 200 > player.x)&&(rock.y === player.y)){
+      allowedKeys = {
         38: 'up',
         39: 'right',
         40: 'down'
-    };
+      }
+    }else if((rock.x > player.x && rock.x - 200 < player.x)&&(rock.y === player.y)){
+      allowedKeys = {
+        37: 'left',
+        38: 'up',
+        40: 'down'
+      }
+    }
 
     player.handleInput(allowedKeys[e.keyCode]);
     console.log(allowedKeys[e.keyCode]);
