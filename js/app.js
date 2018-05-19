@@ -12,16 +12,19 @@ let lives = 3;
 let displayLives;
 console.log(lives);
 
-let selected = [];
 
-//Function for player selection at start of game
+//Function for player selection
 function* characterSelection(){
   console.log("Select which character you want to be...");
 let playerSelection = ["images/char-boy.png",  "images/char-cat-girl.png",  "images/char-horn-girl.png", "images/char-pink-girl.png", "images/char-princess-girl.png"];
+let selected = [];
 
 for (let selection = 0; selection < playerSelection.length; selection++){
   console.log(selected);
   selected.splice(0, 1, yield playerSelection[selection]);
+  if(playerSelection[selection] === "images/char-princess-girl.png"){
+    selection = -1;
+    }
   }
   return selected;
 }
@@ -42,10 +45,6 @@ document.addEventListener('keyup', function(e) {
       selectedChar = selectedPlayer.prev().value;
       player.sprite = selectedChar;
       console.log(selectedChar);
-    }
-
-    if(e.keyCode === 27) {
-      characterSelection();
     }
 });
 
