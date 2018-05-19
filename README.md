@@ -5,7 +5,7 @@
 
 - [x] Put background images in the game.
 - [x] Put character image in the game.
-- [] Implement a character selection option when the game begins.
+- [x] Implement a character selection option when the game begins.
 - [x] Implement Character Movement in the game.
 - [x] Spawn enemies in random locations on the left side of the game map.
 - [x] Spawn Gems, hearts, rocks, and other things in random areas of the game map.
