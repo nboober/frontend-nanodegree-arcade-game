@@ -6,6 +6,21 @@ body {
   font-weight: bold;
 }
 
+#scoreContainer, #highScoreContainer, #livesContainer{
+  font-size: 24px;
+}
+
+#scoreContainer, #highScoreContainer{
+  display: inline-block;
+}
+#scoreContainer{
+  margin-right: 40px;
+}
+
+#name, #score, #highScore, #lives{
+  display: inline;
+}
+
 #charSelect{
   position: absolute;
   font-family: arial;
@@ -23,19 +38,4 @@ body {
   background-color: black;
   color: white;
   width: 50%;
-}
-
-#scoreContainer, #highScoreContainer, #livesContainer{
-  font-size: 24px;
-}
-
-#scoreContainer, #highScoreContainer{
-  display: inline-block;
-}
-#scoreContainer{
-  margin-right: 40px;
-}
-
-#name, #score, #highScore, #lives{
-  display: inline;
 }
