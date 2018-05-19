@@ -12,11 +12,12 @@ let lives = 3;
 let displayLives;
 console.log(lives);
 
+let selected = [];
+
 //Function for player selection at start of game
 function* characterSelection(){
   console.log("Select which character you want to be...");
 let playerSelection = ["images/char-boy.png",  "images/char-cat-girl.png",  "images/char-horn-girl.png", "images/char-pink-girl.png", "images/char-princess-girl.png"];
-let selected = [];
 
 for (let selection = 0; selection < playerSelection.length; selection++){
   console.log(selected);
@@ -34,8 +35,15 @@ console.log(selectedChar);
 document.addEventListener('keyup', function(e) {
     if(e.keyCode === 33) {
         selectedChar = selectedPlayer.next().value;
+        player.sprite = selectedChar;
         console.log(selectedChar);
     }
+    if(e.keyCode === 34) {
+      selectedChar = selectedPlayer.prev().value;
+      player.sprite = selectedChar;
+      console.log(selectedChar);
+    }
+
     if(e.keyCode === 27) {
       characterSelection();
     }
@@ -174,7 +182,7 @@ class Rock extends Extras{
 
 //Objects list
   //Player object
-let player = new Player(selectedChar);
+let player = new Player("images/char-boy.png");
 
   //Enemy object
 const roach1 = new Enemy();
