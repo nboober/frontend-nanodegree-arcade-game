@@ -60,7 +60,7 @@ class Enemy{
       this.x = Math.random()*-101;
       this.y = [60, 145, 225][Math.floor(Math.random()*3)];
     }
-    //Collision functionality
+    //Collision functionality with player
     if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
       player.x = 200;
       player.y = 400;
@@ -169,16 +169,18 @@ class Rock extends Extras{
   }
 }
 
+//Objects list
+  //Heart Object
 let heart = new Heart("images/heart.png");
 console.log(heart);
-
+  //Rock Object
 let rock = new Rock("images/rock.png");
 console.log(rock);
 
-//Player instance
+  //Player object
 let player = new Player(selectedChar);
 
-//Enemy Instances
+  //Enemy object
 const roach1 = new Enemy();
 const roach2 = new Enemy();
 const roach3 = new Enemy();
@@ -188,7 +190,7 @@ const roach5 = new Enemy();
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [roach1, roach2, roach3, roach4, roach5];
 
-// This listens for key presses and sends the keys to your
+// Player control. This listens for key presses and sends the keys to the
 // Player.handleInput() method
 document.addEventListener('keyup', function(e) {
     let allowedKeys = {
@@ -197,8 +199,8 @@ document.addEventListener('keyup', function(e) {
       39: 'right',
       40: 'down'
     };
-    
-    //Rock collision
+
+    //Player control with Rock collision
     if((rock.y < player.y && rock.y + 100 > player.y)&&(rock.x === player.x)){
       allowedKeys = {
       37: 'left',
