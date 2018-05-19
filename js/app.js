@@ -36,57 +36,10 @@ document.addEventListener('keyup', function(e) {
         selectedChar = selectedPlayer.next().value;
         console.log(selectedChar);
     }
+    if(e.keyCode === 27) {
+      characterSelection();
+    }
 });
-
-// Enemies our player must avoid
-class Enemy{
-  constructor(y = [60, 145, 230]){
-    this.sprite = 'images/enemy-bug.png';
-    this.x = Math.random()*350;
-    this.y = y[Math.floor(Math.random()*3)];
-  }
-
-  update(dt){
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
-    //Enemy Movement
-    this.x = Math.ceil(this.x + (dt * 300 * Math.random()*2));
-    // console.log(this.x);
-
-    //Enemy Resets position when reaching end of canvas
-    if(this.x > 500){
-      this.x = Math.random()*-101;
-      this.y = [60, 145, 225][Math.floor(Math.random()*3)];
-    }
-    //Collision functionality with player
-    if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
-      player.x = 200;
-      player.y = 400;
-      lives -= 1;
-      displayLives = document.getElementById('lives').innerHTML = lives;
-
-      //Game Over. Everything except the high score is reset
-      if(lives === 0){
-        alert("Game Over!");
-        lives = 3;
-        displayLives = document.getElementById('lives').innerHTML = lives;
-        score = 0;
-        displayScore = document.getElementById('score').innerHTML = score;
-        //heart Object Changes locations
-        heart.x = [0, 100, 200, 300, 400][Math.floor(Math.random()*5)];
-        heart.y = [60, 145, 225][Math.floor(Math.random()*3)];
-        //Rock Object Changes locations
-        rock.x = [0, 100, 200, 300, 400][Math.floor(Math.random()*5)];
-        rock.y = [60, 145, 225][Math.floor(Math.random()*3)];
-      }
-    }
-  }
-  render(){
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
-}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -138,6 +91,56 @@ class Player {
     }
 }
 
+// Enemies our player must avoid
+class Enemy{
+  constructor(y = [60, 145, 230]){
+    this.sprite = 'images/enemy-bug.png';
+    this.x = Math.random()*350;
+    this.y = y[Math.floor(Math.random()*3)];
+  }
+
+  update(dt){
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
+
+    //Enemy Movement
+    this.x = Math.ceil(this.x + (dt * 300 * Math.random()*2));
+    // console.log(this.x);
+
+    //Enemy Resets position when reaching end of canvas
+    if(this.x > 500){
+      this.x = Math.random()*-101;
+      this.y = [60, 145, 225][Math.floor(Math.random()*3)];
+    }
+    //Collision functionality with player
+    if ((this.x <= player.x && this.x + 50 >= player.x) && (this.y <= player.y && this.y + 50 >= player.y)){
+      player.x = 200;
+      player.y = 400;
+      lives -= 1;
+      displayLives = document.getElementById('lives').innerHTML = lives;
+
+      //Game Over. Everything except the high score is reset
+      if(lives === 0){
+        alert("Game Over!");
+        lives = 3;
+        displayLives = document.getElementById('lives').innerHTML = lives;
+        score = 0;
+        displayScore = document.getElementById('score').innerHTML = score;
+        //heart Object Changes locations
+        heart.x = [0, 100, 200, 300, 400][Math.floor(Math.random()*5)];
+        heart.y = [60, 145, 225][Math.floor(Math.random()*3)];
+        //Rock Object Changes locations
+        rock.x = [0, 100, 200, 300, 400][Math.floor(Math.random()*5)];
+        rock.y = [60, 145, 225][Math.floor(Math.random()*3)];
+      }
+    }
+  }
+  render(){
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+}
+
 class Extras{
   constructor(sprite, x = [0, 100, 200, 300, 400] , y = [60, 145, 225]){
     this.sprite = sprite;
@@ -170,13 +173,6 @@ class Rock extends Extras{
 }
 
 //Objects list
-  //Heart Object
-let heart = new Heart("images/heart.png");
-console.log(heart);
-  //Rock Object
-let rock = new Rock("images/rock.png");
-console.log(rock);
-
   //Player object
 let player = new Player(selectedChar);
 
@@ -189,6 +185,13 @@ const roach5 = new Enemy();
 
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [roach1, roach2, roach3, roach4, roach5];
+
+  //Heart Object
+let heart = new Heart("images/heart.png");
+console.log(heart);
+  //Rock Object
+let rock = new Rock("images/rock.png");
+console.log(rock);
 
 // Player control. This listens for key presses and sends the keys to the
 // Player.handleInput() method

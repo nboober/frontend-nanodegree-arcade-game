@@ -2,6 +2,10 @@ body {
     text-align: center;
 }
 
+#name{
+  font-weight: bold;
+}
+
 #scoreContainer, #highScoreContainer, #livesContainer{
   font-size: 24px;
 }
