@@ -41,11 +41,6 @@ document.addEventListener('keyup', function(e) {
         player.sprite = selectedChar;
         console.log(selectedChar);
     }
-    if(e.keyCode === 34) {
-      selectedChar = selectedPlayer.prev().value;
-      player.sprite = selectedChar;
-      console.log(selectedChar);
-    }
 });
 
 // Now write your own player class
